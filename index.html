@@ -143,6 +143,7 @@
       </tr>
     </tbody>
   </table>
+  <h1>click</h1>
   <!-- Click3.wav by EdgardEdition -- https://freesound.org/s/113093/ -- License: Attribution 3.0 -->
   <audio id="click" src="113093__edgardedition__click3.wav"></audio>
 
@@ -155,8 +156,16 @@
     let lastSound = clickSound;
 
     // TODO: 1 - make it such that if any table cell is clicked, the onClick function below is executed
+    const h1 = document.querySelector("h1")
+
+    const cells = document.querySelectorAll('td')
+    cells.forEach(cell => {
+      cell.addEventListener("click", onClick);
+    });    
+
 
     function onClick(ev) {
+      console.log("INSIDE FUNCTION")
       lastSound.pause()
       lastSound.currentTime = 0;
       clickCount++
@@ -164,12 +173,16 @@
         // boom
         boomSound.play();
         lastSound = boomSound
+        h1.textContent = "boom"
       } else {
         clickSound.play();
         lastSound = clickSound
+        h1.textContent = "click"
       }
 
       console.log(`ev in onClick ${ev}`)
+      ev.target.remove()
+      ev.target.parentElement.classList.toggle('odd')
       // TODO: 2 - REMOVE THE TABLE CELL THAT WAS CLICKED
 
     }
