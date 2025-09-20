@@ -1,1 +1,7 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/bsGncMXH)
+Update Click Click BOOM so that
+1. even and odd
+    1. the class "odd" is added to rows that have an odd number of cells
+    2. the class doesn't remain on the rows when they have an even number of cells
+2. BOOM TEXT
+    1. add an h1 at the top that has no content
+    2. each time the BOOM happens, change the content of the h1 to either "BOOM" or empty string (alternating)

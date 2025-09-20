@@ -165,7 +165,6 @@
 
 
     function onClick(ev) {
-      console.log("INSIDE FUNCTION")
       lastSound.pause()
       lastSound.currentTime = 0;
       clickCount++
@@ -179,11 +178,17 @@
         lastSound = clickSound
         h1.textContent = "click"
       }
-
+      const currRow = ev.target.parentElement; // select row by getting parent element of ev
       console.log(`ev in onClick ${ev}`)
       ev.target.remove()
-      ev.target.parentElement.classList.toggle('odd')
-      // TODO: 2 - REMOVE THE TABLE CELL THAT WAS CLICKED
+
+      const cellCount = currRow.querySelectorAll('td').length; // get the length of the current row
+
+      if (cellCount % 2 != 0) {
+        currRow.classList.add("odd") //add odd class
+      } else {
+        currRow.classList.remove("odd") // remove odd class
+      }
 
     }
   </script>
